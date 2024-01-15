@@ -7,6 +7,7 @@
 				id="id_pass"
 				name="id"
 				placeholder="아이디를 입력해주세요"
+				v-model="user.id"
 			/>
 		</div>
 		<div>
@@ -16,6 +17,7 @@
 				id="pass_area"
 				name="password"
 				placeholder="비밀번호를 입력해주세요"
+				v-model="user.password"
 			/>
 		</div>
 		<div>
@@ -25,24 +27,44 @@
 				id="name_area"
 				name="name"
 				placeholder="이름을 입력하세요"
+				v-model="user.name"
 			/>
 		</div>
+		<button type="button" @click="insertUser">회원가입</button>
 	</div>
 </template>
 
 <script>
 import { reactive } from 'vue';
-
+import axios from 'axios';
 export default {
 	components: {},
 
 	setup() {
-		let user = reactive({
+		axios.get('/api/user/').then(({ data }) => {
+			console.log(data);
+		});
+		const user = reactive({
 			id: '',
 			password: '',
 			name: '',
 		});
-		this.axios.post('/api/user');
+
+		const insertUser = () => {
+			axios
+				.post('/api/user/', user)
+				.then(({ data }) => {
+					console.log(data);
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		};
+
+		return {
+			user,
+			insertUser,
+		};
 	},
 };
 </script>

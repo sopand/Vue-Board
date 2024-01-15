@@ -7,9 +7,11 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
 	plugins: [vue()],
 	server: {
+		port: 3000,
 		proxy: {
 			'/api': {
-				target: 'http://localhost:8080/api',
+				// 요청 전달 대상 서버 주소 설정
+				target: 'http://localhost:8080/',
 			},
 		},
 	},
