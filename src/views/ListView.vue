@@ -1,5 +1,4 @@
 <template>
-	<HomeHeader />
 	<div class="content_box">
 		<div class="link_box">
 			<a href="/board/add">생성</a>
@@ -22,12 +21,9 @@
 </template>
 
 <script>
-import HomeHeader from '@/components/HomeHeader.vue';
 export default {
 	name: 'list-view',
-	components: {
-		HomeHeader,
-	},
+	components: {},
 };
 </script>
 
