@@ -8,7 +8,7 @@ const routes = [
 		component: ListView,
 	},
 	{
-		path: '/board/add',
+		path: '/user/add',
 		component: CreateView,
 	},
 	{
