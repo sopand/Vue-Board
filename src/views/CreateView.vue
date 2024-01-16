@@ -41,9 +41,6 @@ export default {
 	components: {},
 
 	setup() {
-		axios.get('/api/user/').then(({ data }) => {
-			console.log(data);
-		});
 		const user = reactive({
 			id: '',
 			password: '',
